@@ -1,24 +1,23 @@
 //
-//  Characters.swift
+//  File.swift
 //  Projet 3
 //
-//  Created by Amg on 18/10/2017.
+//  Created by Amg on 23/10/2017.
 //  Copyright © 2017 Amg-Industries. All rights reserved.
 //
 
-import Cocoa
-
+import Foundation
 
 //Creation different characters
 class Characters {
     let name: String
     let health: Int
-    let score: Int
     
-    init(name: String, health: Int , score: Int) {
-      self.name = name
-      self.health = health
-      self.score = score
+    init(name: String, health: Int) {
+        self.name = name
+        self.health = health
     }
+    
+    
     
 }

@@ -15,4 +15,3 @@ class Nameplayer1 {
         self.namePlayer = namePlayer
     }
 }
-
