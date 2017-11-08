@@ -14,3 +14,4 @@ class Sword: Arms {
         super.init(damage: 10, power: 0)
     }
 }
+

@@ -14,3 +14,5 @@ class Arc: Arms {
         super.init(damage: 10 , power: 0)
     }
 }
+
+

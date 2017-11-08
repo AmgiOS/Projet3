@@ -10,13 +10,13 @@ import Foundation
 
 class Arms {
     
-    let damage: Int
+    var damage: Int
     let power: Int
     
     init(damage: Int, power: Int) {
         self.damage = damage
         self.power = power
     }
-    
 }
+
 

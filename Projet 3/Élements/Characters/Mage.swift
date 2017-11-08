@@ -8,14 +8,12 @@
 
 import Foundation
 
-class Warrior: Characters {
+class Mage: Characters {
     
-    var nameTeam1 = Nameplayer1(namePlayer: "")
     
     //MARK: - Init
-    init() {
-        super.init(name: "", health: 100)
+    init(name: String) {
+        super.init(name: name, health: 100, arms: Scepter())
     }
-    
-    var arms = Sword()
 }
+

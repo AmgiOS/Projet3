@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Mage: Characters {
+
+class Colossus: Characters {
     
-    var nameTeam1 = Nameplayer1()
     
-    //MARK: - Init
-    init() {
-        super.init(name: "", health: 100)
+    //MARK: - init
+    init(name: String) {
+        super.init(name: name, health: 150, arms: Arc() )
     }
-    var arms = Scepter()
 }
+

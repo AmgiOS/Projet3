@@ -8,11 +8,12 @@
 
 import Foundation
 
-class Scepter: Arms {
+class Warrior: Characters {
     
-    init() {
-        super.init(damage: 0, power: 20)
+    //MARK: - Init
+    init(name: String) {
+        super.init(name: name, health: 100, arms: Sword())
     }
-}
 
+}
 

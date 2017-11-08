@@ -14,3 +14,4 @@ class Hache: Arms {
         super.init(damage: 30, power: 0)
     }
 }
+

@@ -10,11 +10,10 @@ import Foundation
 
 class Dwarf: Characters {
     
-    var nameTeam1 = Nameplayer1(namePlayer: "")
-    
     //MARK: - Init
-    init() {
-        super.init(name: "", health: 50)
+    init(name: String) {
+        super.init(name: name, health: 50, arms: Hache())
     }
-    var arms = Hache()
 }
+
+
