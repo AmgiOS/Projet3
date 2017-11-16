@@ -13,14 +13,12 @@ import Foundation
 class Game {
  
     var teams = [Team]()
-    var choicePlayer = 0
-    var boucleInfinite = true
     
     func inputInt() -> Int {
-        let strData = readLine();
-        return Int(strData!)!
+        guard let data = readLine() else { return 0 }
+        guard let dataToInt = Int(data) else { return 0 }
+        return dataToInt
     }
-    
     
     func start() {
         welcome()
@@ -29,7 +27,70 @@ class Game {
             team.characters = createNewTeamCharacters()
             teams.append(team)
         }
+        
+        
     }
+    
+    func round() {
+        var choiceUser = 0
+        var choiceCharacter: Characters?
+        
+        if teams.count >= 2 {
+         
+            repeat {
+                
+                for i in 0..<2 {
+                    print("Team \(i + 1) a vous de jouer")
+                    displayCharacters(team: teams[i])
+                    repeat {
+                        choiceUser = inputInt()
+                    } while choiceUser != 1 && choiceUser != 2 && choiceUser != 3
+                    choiceCharacter = teams[i].characters[choiceUser - 1]
+                    
+                    if let character = choiceCharacter as? Mage {
+                        print("Quel membre de l'equipe veut tu soigner?")
+                        // lister les characters a soigner
+                        // selectionner le personnage a soigner
+                        // soigner le perso avec la fonction healing
+                    } else {
+                        print("Quel membre de l'equipe adverse souhaiter vous attaquer")
+                        if i == 0 {
+                            // (quand l'equipe 1 attaque)
+                            // lister les perso equipe 2
+                            // selectionner la cible
+                            // attaquer la cible
+                        } else {
+                            // (quand l'equipe 2 attaque)
+                            // lister les perso equipe 1
+                            // selectionner la cible
+                            // attaquer la cible
+                        }
+                    }
+                }
+                
+            } while teams.count != 1
+            
+            
+        }
+        
+        
+        
+    }
+    
+    func displayCharacters(team: Team) {
+        let charactersCount = team.characters.count
+        
+        for i in 0..<charactersCount {
+            let character = team.characters[i]
+            if character.health > 0 {
+                print("\(i + 1) " + character.name + " Pv:  \(character.health) damage: \(character.arms.damage)" )
+            } else {
+                print(character.name + " is dead ")
+            }
+        }
+    }
+    
+    // Create 2 teams
     
     func createNewTeamCharacters() -> [Characters] {
         var charactersListe = [Characters]()
@@ -37,7 +98,8 @@ class Game {
         var choiceUser = 0
         
         for i in 0..<3 {
-            print("Create your character n° \(i + 1)")
+            print("")
+            print("Create your character n° \(i + 1) press enter and name her")
             print("1: Warrior")
             print("2: Mage")
             print("3: Dwarf")
@@ -74,6 +136,7 @@ class Game {
 
     
     //    MARK: MENUS
+    
     func welcome() {
         print("Welcome to the Game")
         print("")
@@ -84,24 +147,6 @@ class Game {
         """)
     }
 
-    func menuTeam() {
-    print("Add Characters for Team 1 :",
-        "\n1. Warrior",
-        "\n2. Mage",
-        "\n3. Dwarf",
-        "\n4. Colossus")
-    }
-    
-    func menuteam2() {
-    print("Add Characters for Team 2 :",
-        "\n1. Warrior",
-        "\n2. Mage",
-        "\n3. Dwarf",
-        "\n4. Colossus")
-    }
-    
-    //    MARK: ACTION GAME
-
     func fight() {
         print("Choice you Action")
         print("1 - Attack")
@@ -109,6 +154,8 @@ class Game {
         print("3 - Improve Your Arms")
         
     }
+    
+    
     
     
     

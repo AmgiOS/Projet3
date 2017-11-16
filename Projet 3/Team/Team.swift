@@ -9,10 +9,7 @@
 import Foundation
 
 class Team {
-    
     var characters = [Characters]()
-    
-
 }
 
 

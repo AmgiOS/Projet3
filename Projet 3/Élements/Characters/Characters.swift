@@ -37,15 +37,17 @@ class Characters {
     
     func improveArms() {
         arms.damage += 5
+    }
+    
+    
         
         
 //      while health != 0 {
 //            _ = improve.damage + 5
 //        }
-    }
     
+
+
+
 }
-
-
-    
 
