@@ -41,7 +41,7 @@
 		991A25CA1F9DEA99008F82F0 /* Scepter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scepter.swift; sourceTree = "<group>"; };
 		991A25CC1F9DEB17008F82F0 /* Sword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword.swift; sourceTree = "<group>"; };
 		991A25CE1F9DEB53008F82F0 /* Hache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hache.swift; sourceTree = "<group>"; };
-		991A25D01F9DEE2C008F82F0 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		991A25D01F9DEE2C008F82F0 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; usesTabs = 0; };
 		991A25D21F9E0A01008F82F0 /* Mage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mage.swift; sourceTree = "<group>"; };
 		991A25D41F9E0A38008F82F0 /* Dwarf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
 		991A25D61F9E0A75008F82F0 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };

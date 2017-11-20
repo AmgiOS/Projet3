@@ -28,10 +28,10 @@ class Characters {
     }
     
     func healing(target: Characters) {
-        if target.health > 0 {
+        if target.health > 0  {
          target.health += arms.power
         } else {
-            print("Target is dead")
+            print("Character is not possible healing because he is dead")
         }
     }
     

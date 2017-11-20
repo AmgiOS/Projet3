@@ -27,8 +27,7 @@ class Game {
             team.characters = createNewTeamCharacters()
             teams.append(team)
         }
-        
-        
+        round()
     }
     
     func round() {
@@ -40,7 +39,8 @@ class Game {
             repeat {
                 
                 for i in 0..<2 {
-                    print("Team \(i + 1) a vous de jouer")
+                    print("")
+                    print("Team \(i + 1) it's your turn")
                     displayCharacters(team: teams[i])
                     repeat {
                         choiceUser = inputInt()
@@ -48,33 +48,78 @@ class Game {
                     choiceCharacter = teams[i].characters[choiceUser - 1]
                     
                     if let character = choiceCharacter as? Mage {
-                        print("Quel membre de l'equipe veut tu soigner?")
+                        print("")
+                        print("Which member of the team wants to treat you?")
                         // lister les characters a soigner
-                        // selectionner le personnage a soigner
                         // soigner le perso avec la fonction healing
+                        // selectionner le personnage a soigner
+                        displayCharacters(team: teams[i])
+                        choiceUser = inputInt()
+                        switch choiceUser {
+                        case 1:
+                            let choice1 = teams[i].characters[0]
+                            character.healing(target: choice1)
+                        case 2:
+                            let choice2 = teams[i].characters[1]
+                            character.healing(target: choice2)
+                        case 3:
+                            let choice3 = teams[i].characters[2]
+                            character.healing(target: choice3)
+                        default:
+                            break
+                        }
                     } else {
-                        print("Quel membre de l'equipe adverse souhaiter vous attaquer")
+                        print("")
+                        print("which member of the team opponents want to attack?")
                         if i == 0 {
                             // (quand l'equipe 1 attaque)
                             // lister les perso equipe 2
                             // selectionner la cible
                             // attaquer la cible
+                            
+                            displayCharacters(team: teams[1])
+                            choiceUser = inputInt()
+                            switch choiceUser {
+                            case 1 :
+                                let target1 = teams[1].characters[0]
+                                teams[0].characters[0].attack(target: target1)
+                            case 2 :
+                                let target2 = teams[1].characters[1]
+                                teams[0].characters[1].attack(target: target2)
+                            case 3 :
+                                let target3 = teams[1].characters[2]
+                                teams[0].characters[2].attack(target: target3)
+                            default:
+                                break
+                            }
+                            
                         } else {
                             // (quand l'equipe 2 attaque)
                             // lister les perso equipe 1
                             // selectionner la cible
                             // attaquer la cible
+                            displayCharacters(team: teams[0])
+                            choiceUser = inputInt()
+                            switch choiceUser {
+                            case 1 :
+                                let target1 = teams[0].characters[0]
+                                teams[1].characters[0].attack(target: target1)
+                            case 2 :
+                                let target2 = teams[0].characters[1]
+                                teams[1].characters[1].attack(target: target2)
+                            case 3 :
+                                let target3 = teams[0].characters[2]
+                                teams[1].characters[2].attack(target: target3)
+                            default:
+                                break
+                            }
+                            
                         }
                     }
                 }
                 
             } while teams.count != 1
-            
-            
         }
-        
-        
-        
     }
     
     func displayCharacters(team: Team) {
@@ -83,7 +128,7 @@ class Game {
         for i in 0..<charactersCount {
             let character = team.characters[i]
             if character.health > 0 {
-                print("\(i + 1) " + character.name + " Pv:  \(character.health) damage: \(character.arms.damage)" )
+                print("\(i + 1) " + character.name + " Pv:  \(character.health), damage: \(character.arms.damage), Power: \(character.arms.power)" )
             } else {
                 print(character.name + " is dead ")
             }
@@ -111,7 +156,7 @@ class Game {
             
             repeat {
                 charactersName = readLine()!
-            } while charactersName == ""
+            } while charactersName == "" && charactersName != charactersName
             
             switch choiceUser {
                 case 1:
@@ -148,7 +193,7 @@ class Game {
     }
 
     func fight() {
-        print("Choice you Action")
+		print("Choice you Action")
         print("1 - Attack")
         print("2 - healing")
         print("3 - Improve Your Arms")
