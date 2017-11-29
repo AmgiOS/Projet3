@@ -10,6 +10,7 @@ import Foundation
 
 class Scepter: Arms {
     
+    //MARK: - init arms
     init() {
         super.init(damage: 0, power: 20)
     }

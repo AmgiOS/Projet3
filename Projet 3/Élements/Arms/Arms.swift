@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Create Arms 
 class Arms {
     
     var damage: Int

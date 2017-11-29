@@ -1,19 +1,17 @@
 //
-//  File.swift
+//  The Dark Sword.swift
 //  Projet 3
 //
-//  Created by Amg on 23/10/2017.
+//  Created by Amg on 22/11/2017.
 //  Copyright © 2017 Amg-Industries. All rights reserved.
 //
 
 import Foundation
 
-class Arc: Arms {
+class DarkSword: Arms {
     
     //MARK: - init arms
     init() {
-        super.init(damage: 10 , power: 0)
+        super.init(damage: 35, power: 0)
     }
 }
-
-

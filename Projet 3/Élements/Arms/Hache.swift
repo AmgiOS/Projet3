@@ -10,6 +10,7 @@ import Foundation
 
 class Hache: Arms {
     
+    //MARK: - init arms
     init(){
         super.init(damage: 30, power: 0)
     }

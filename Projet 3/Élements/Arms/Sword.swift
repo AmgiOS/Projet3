@@ -10,6 +10,7 @@ import Foundation
 
 class Sword: Arms {
     
+    //MARK: - init arms
     init() {
         super.init(damage: 10, power: 0)
     }
