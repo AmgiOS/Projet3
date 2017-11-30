@@ -12,8 +12,11 @@ import Foundation
 
 class Game {
  
+    //Array of teams
     var teams = [Team]()
+    //Array check a uniques names of the all characters
     var uniqueNames = [String]()
+    //Array of names of 2 teams
     var teamNames = [String]()
     
     //function input check if we use a number
@@ -32,13 +35,20 @@ class Game {
     //Function Create the party
     func start() {
         welcome()
+        
         //Create 2 teams
         for i in 0..<2 {
             let team = Team()
+            
             print("")
             print("Name your team \(i + 1)")
-            let nameOfTeam = inputString()
-            teamNames.append(nameOfTeam)
+            var nameOfTeam = inputString()
+            if teamNames.contains(nameOfTeam) {
+                print("name team is already used")
+                nameOfTeam = inputString()
+            } else {
+                teamNames.append(nameOfTeam)
+            }
             team.characters = createNewTeamCharacters()
             teams.append(team)
         }
