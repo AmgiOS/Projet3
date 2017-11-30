@@ -16,8 +16,7 @@ class Game {
     var teams = [Team]()
     //Array check a uniques names of the all characters
     var uniqueNames = [String]()
-    //Array of names of 2 teams
-    var teamNames = [String]()
+    var uniquesNamesTeam = [String]()
     
     //function input check if we use a number
     func inputInt() -> Int {
@@ -32,23 +31,32 @@ class Game {
         return data
     }
     
+    func createNewTeam(teamNumbers: Int) -> Team {
+        var teamNames = ""
+        print("entrer le nom de l'equipe numero \(teamNumbers + 1)")
+        
+        repeat {
+            teamNames = inputString()
+            if uniquesNamesTeam.contains(teamNames) {
+                print("le nom est deja utilisé ")
+                teamNames = ""
+            } else {
+                uniquesNamesTeam.append(teamNames)
+            }
+        } while teamNames == ""
+        
+        let newTeam = Team(name: teamNames)
+        
+        return newTeam
+    }
+    
     //Function Create the party
     func start() {
         welcome()
         
         //Create 2 teams
         for i in 0..<2 {
-            let team = Team()
-            
-            print("")
-            print("Name your team \(i + 1)")
-            var nameOfTeam = inputString()
-            if teamNames.contains(nameOfTeam) {
-                print("name team is already used")
-                nameOfTeam = inputString()
-            } else {
-                teamNames.append(nameOfTeam)
-            }
+            let team = createNewTeam(teamNumbers: i)
             team.characters = createNewTeamCharacters()
             teams.append(team)
         }
@@ -65,7 +73,7 @@ class Game {
             repeat {
                 for i in 0..<2 {
                     print("")
-                    print("Team \(i + 1) \(teamNames[i]) it's your turn")
+                    print("Team " + teams[i].name + " it's your turn" )
                     displayCharacters(team: teams[i])
                     repeat {
                         choiceUser = inputInt()
@@ -101,7 +109,7 @@ class Game {
                             currentCharacter.attack(target: teams[i + 1].characters[choiceUser - 1])
                             if teamDead(team: teams[i + 1]) {
                                 print("")
-                                print("The win is team \(teamNames[i]) Congralutation !. ")
+                                print("The win is team" + teams[i + 1].name + "Congralutation !. ")
                                 return
                             }
                         } else {
@@ -115,7 +123,7 @@ class Game {
                             currentCharacter.attack(target: teams[i - 1].characters[choiceUser - 1])
                             if teamDead(team: teams[i - 1]) {
                                 print("")
-                                print("the win is team \(teamNames[i]) Congralutation !. ")
+                                print("the win is team " + teams[i - 1].name + "Congralutation !. ")
                                 return
                             }
                         }
