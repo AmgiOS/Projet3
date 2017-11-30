@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Create Character Warrior who inherits from Characters
 class Warrior: Characters {
     
     //MARK: - Init

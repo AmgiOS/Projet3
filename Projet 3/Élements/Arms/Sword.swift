@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Sword class who inherits from Arms
 class Sword: Arms {
     
     //MARK: - init arms

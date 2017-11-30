@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Create Character Dwarf who inherits from Characters
 class Dwarf: Characters {
     
     //MARK: - Init

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+// Hache class who inherits from Arms
 
 class Hache: Arms {
     

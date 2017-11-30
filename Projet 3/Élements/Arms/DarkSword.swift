@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// darkSword class who inherits from Arms
 class DarkSword: Arms {
     
     //MARK: - init arms

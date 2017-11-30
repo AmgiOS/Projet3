@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Scepter ultimate class who inherits from Arms
 class ScepterUltimate: Arms {
     
     //MARK: - init arms

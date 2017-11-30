@@ -7,8 +7,7 @@
 //
 
 import Foundation
-
-
+// Create Colossus character who inherits from Characters
 class Colossus: Characters {
     
     

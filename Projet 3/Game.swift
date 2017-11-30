@@ -9,13 +9,13 @@
 import Foundation
 
 //Interface New game
-
 class Game {
  
     //Array of teams
     var teams = [Team]()
     //Array check a uniques names of the all characters
     var uniqueNames = [String]()
+    //Array check a uniques names of the all characters
     var uniquesNamesTeam = [String]()
     
     //function input check if we use a number
@@ -31,14 +31,17 @@ class Game {
         return data
     }
     
+    //Function create 2 team and check if we use a name
     func createNewTeam(teamNumbers: Int) -> Team {
         var teamNames = ""
-        print("entrer le nom de l'equipe numero \(teamNumbers + 1)")
+        print("")
+        print("name team \(teamNumbers + 1)")
         
         repeat {
             teamNames = inputString()
             if uniquesNamesTeam.contains(teamNames) {
-                print("le nom est deja utilisé ")
+                print("")
+                print("name is already used ")
                 teamNames = ""
             } else {
                 uniquesNamesTeam.append(teamNames)
@@ -46,7 +49,6 @@ class Game {
         } while teamNames == ""
         
         let newTeam = Team(name: teamNames)
-        
         return newTeam
     }
     
@@ -109,7 +111,7 @@ class Game {
                             currentCharacter.attack(target: teams[i + 1].characters[choiceUser - 1])
                             if teamDead(team: teams[i + 1]) {
                                 print("")
-                                print("The win is team" + teams[i + 1].name + "Congralutation !. ")
+                                print("The win is team " + " " + teams[i].name + " " + " Congralutation !. ")
                                 return
                             }
                         } else {
@@ -123,7 +125,7 @@ class Game {
                             currentCharacter.attack(target: teams[i - 1].characters[choiceUser - 1])
                             if teamDead(team: teams[i - 1]) {
                                 print("")
-                                print("the win is team " + teams[i - 1].name + "Congralutation !. ")
+                                print("the win is team " + " " + teams[i].name + " " + " Congralutation !. ")
                                 return
                             }
                         }
@@ -165,7 +167,7 @@ class Game {
         }
     }
     
-    // Create 2 teams
+    // Create character
     func createNewTeamCharacters() -> [Characters] {
         var charactersListe = [Characters]()
         var charactersName = ""

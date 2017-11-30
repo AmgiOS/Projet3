@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Create team 
 class Team {
     var characters = [Characters]()
     let name: String

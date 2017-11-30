@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Arc class who inherits from Arms
 class Arc: Arms {
     
     //MARK: - init arms

@@ -8,9 +8,8 @@
 
 import Foundation
 
-// Create Character Mage
+// Create Character Mage who inherits from Characters
 class Mage: Characters {
-    
     
     //MARK: - Init
     init(name: String) {
