@@ -13,6 +13,7 @@ class Team {
     var characters = [Characters]()
     let name: String
     
+    // MARK: init
     init(name: String){
         self.name = name
     }

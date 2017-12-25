@@ -52,6 +52,15 @@ class Game {
         return newTeam
     }
     
+    func userChoiceInFightStatement() -> Int {
+        var choiceUser = 0
+        repeat {
+            choiceUser = inputInt()
+        } while choiceUser != 1 && choiceUser != 2 && choiceUser != 3
+        
+        return choiceUser
+    }
+    
     //Function Create the party
     func start() {
         welcome()
@@ -77,9 +86,7 @@ class Game {
                     print("")
                     print("Team " + teams[i].name + " it's your turn" )
                     displayCharacters(team: teams[i])
-                    repeat {
-                        choiceUser = inputInt()
-                    } while choiceUser != 1 && choiceUser != 2 && choiceUser != 3
+                    choiceUser = userChoiceInFightStatement()
                     
                     choiceCharacter = teams[i].characters[choiceUser - 1]
                     guard let currentCharacter = choiceCharacter else  { return }
@@ -90,10 +97,7 @@ class Game {
                         print("")
                         print("Which member of the team wants to treat you?")
                         displayCharacters(team: teams[i])
-                        
-                        repeat {
-                            choiceUser = inputInt()
-                        } while choiceUser != 1 && choiceUser != 2 && choiceUser != 3
+                        choiceUser = userChoiceInFightStatement()
                         
                         character.healing(target: teams[i].characters[choiceUser - 1])
 
@@ -103,10 +107,7 @@ class Game {
                         if i == 0 {
                             //When team 1 plays
                             displayCharacters(team: teams[i + 1])
-                            
-                            repeat {
-                                choiceUser = inputInt()
-                            } while choiceUser != 1 && choiceUser != 2 && choiceUser != 3
+                            choiceUser = userChoiceInFightStatement()
                             
                             currentCharacter.attack(target: teams[i + 1].characters[choiceUser - 1])
                             if teamDead(team: teams[i + 1]) {
@@ -117,10 +118,7 @@ class Game {
                         } else {
                             // When team 2 plays
                             displayCharacters(team: teams[i - 1])
-                            
-                            repeat {
-                                choiceUser = inputInt()
-                            } while choiceUser != 1 && choiceUser != 2 && choiceUser != 3
+                            choiceUser = userChoiceInFightStatement()
                             
                             currentCharacter.attack(target: teams[i - 1].characters[choiceUser - 1])
                             if teamDead(team: teams[i - 1]) {
@@ -236,7 +234,6 @@ class Game {
                 character.arms = thedarksword
             }
         }
-        
     }
     
     // MENUS
